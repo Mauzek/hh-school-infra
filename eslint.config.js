@@ -24,6 +24,7 @@ export default defineConfig([
       'prefer-const': 'error',
       'no-var': 'error',
       'eqeqeq': ['error', 'always'],
+      'no-const-assign': 'error',
 
       '@typescript-eslint/explicit-function-return-type': [
         'warn',
