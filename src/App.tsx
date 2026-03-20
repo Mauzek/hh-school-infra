@@ -181,7 +181,9 @@ export default function App(): JSX.Element {
   /* ── Auto resize ── */
   useEffect(() => {
     const el = taRef.current;
-    if (!el) return;
+    if (!el) {
+      return;
+    }
     el.style.height = 'auto';
     el.style.height = `${Math.min(el.scrollHeight, 180)}px`;
   }, [input]);
@@ -219,7 +221,9 @@ export default function App(): JSX.Element {
   const send = useCallback(
     async (text?: string) => {
       const content = (text ?? input).trim();
-      if (!content || busy) return;
+      if (!content || busy) {
+        return;
+      }
       setError(null);
 
       const uId = uid();
@@ -229,7 +233,9 @@ export default function App(): JSX.Element {
       ]);
       setInput('');
       setBusy(true);
-      if (taRef.current) taRef.current.style.height = 'auto';
+      if (taRef.current) {
+        taRef.current.style.height = 'auto';
+      }
 
       setTimeout(
         () =>

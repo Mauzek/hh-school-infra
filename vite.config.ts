@@ -2,8 +2,8 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 
-export default defineConfig({
-  base: '/hh-school-infra/',
+export default defineConfig(({ command }) => ({
+  base: command === 'serve' ? '/' : '/hh-school-infra/',
   plugins: [react()],
   server: {
     port: 3000,
@@ -31,4 +31,4 @@ export default defineConfig({
   optimizeDeps: {
     include: ['react', 'react-dom'],
   },
-});
+}));
